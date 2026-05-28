@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── IceCap Brand CSS Variables ─────────────────────────────────────── */
+    --icecap-navy:       10 22 40;
+    --icecap-gold:       201 168 76;
+    --icecap-gold-light: 232 201 122;
+    --icecap-slate:      30 45 69;
+    --icecap-steel:      46 68 96;
+    --icecap-white:      248 249 250;
+    --icecap-muted:      139 155 174;
+    --icecap-success:    34 197 94;
+    --icecap-warning:    245 158 11;
+    --icecap-danger:     239 68 68;
+
+    /* ── shadcn/ui Theme (Dark Mode by Default) ──────────────────────────── */
+    --background:             220 37% 10%;
+    --foreground:             210 25% 97%;
+
+    --card:                   220 37% 17%;
+    --card-foreground:        210 25% 97%;
+
+    --popover:                220 37% 17%;
+    --popover-foreground:     210 25% 97%;
+
+    --primary:                42 53% 54%;
+    --primary-foreground:     220 37% 10%;
+
+    --secondary:              214 30% 25%;
+    --secondary-foreground:   210 25% 97%;
+
+    --muted:                  214 30% 25%;
+    --muted-foreground:       213 20% 62%;
+
+    --accent:                 42 53% 54%;
+    --accent-foreground:      220 37% 10%;
+
+    --destructive:            0 84% 60%;
+    --destructive-foreground: 210 25% 97%;
+
+    --border:                 214 30% 28%;
+    --input:                  214 30% 28%;
+    --ring:                   42 53% 54%;
+
+    --radius:                 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+
+  /* Scrollbar styling for dashboard */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-icecap-navy;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-icecap-steel rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-icecap-muted;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-mono-data {
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #C9A84C 0%, #E8C97A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-surface {
+    @apply bg-icecap-slate border border-icecap-steel rounded-lg;
+  }
+
+  .card-surface-hover {
+    @apply card-surface transition-all duration-200 hover:border-icecap-gold/40 hover:shadow-lg hover:shadow-icecap-gold/5;
+  }
+}
